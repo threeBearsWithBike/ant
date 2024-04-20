@@ -6,11 +6,16 @@
     flex-direction: column;
     justify-content: center;
     flex-wrap: nowrap;
+    background-color: bisque;
 }
 
 header,
 footer {
     flex: 0 1 auto;
+}
+
+footer {
+    background: linear-gradient(to right, green, brown);
 }
 
 main {
