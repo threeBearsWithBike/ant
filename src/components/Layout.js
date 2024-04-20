@@ -1,10 +1,12 @@
 import { Link, Outlet } from 'react-router-dom';
+import '../css/layout.css';
 
 const Layout = () => {
     return (
-        <div>
+        <div className='Layout'>
             <header>
-                <h1>Ant</h1>
+                <h1 className='title'>Langton's Ant</h1>
+                <div className='main-img'></div>
                 <nav>
                     <Link to='/'>Home</Link>
                     <Link to='/settings'>Settings</Link>

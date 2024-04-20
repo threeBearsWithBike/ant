@@ -1,0 +1,51 @@
+.Layout {
+    width: 80%;
+    min-height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+
+header,
+footer {
+    flex: 0 1 auto;
+}
+
+main {
+    flex: 1 1 auto;
+}
+
+.title {
+    text-align: start;
+    margin-bottom: 3px;
+    padding: 10px 20px;
+    color: bisque;
+    font-size: 1rem;
+    background: linear-gradient(to right, green, brown);
+}
+
+.main-img {
+    width: 100%;
+    height: 150px;
+    margin-bottom: 3px;
+    background-image: url('../assets/img/ant-sun.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px 0;
+    background-color: brown;
+}
+
+nav a {
+    color: bisque;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+}
