@@ -5,8 +5,7 @@ import Ceil from "./Ceil";
 const RowField = ({row, isRowAnt}) => {
     const {state} = useContext(Context);
 
-    return row.map((ceil, idx) => <Ceil key={idx} value={ceil} isAnt={isRowAnt && idx === state.ant[1]} />)
-    
+    return row.map((ceil, idx) => <Ceil value={ceil} isAnt={isRowAnt && idx === state.ant[1]} />)    
 }
 
 export default RowField;

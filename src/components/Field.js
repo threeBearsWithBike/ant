@@ -7,7 +7,8 @@ const Field = () => {
     const {state} = useContext(Context);
     return (
         <div className="Field">
-            {state.field.map((row, idx) => <RowField key={idx} row={row} isRowAnt={idx === state.ant[0]} />)}
+            {state.field.map((row, idx) => <RowField row={row} isRowAnt={idx === state.ant[0]} />)
+            }
         </div>
     )
 }

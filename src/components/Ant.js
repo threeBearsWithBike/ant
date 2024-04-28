@@ -13,7 +13,7 @@ const Ant = () => {
         }
     }
     
-    return <img src={ant} className={'Ant ' + lookTo} />
+    return <img src={ant} className={'Ant ' + lookTo} alt='ant' />
 }
 
 export default Ant;

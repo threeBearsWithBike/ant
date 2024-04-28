@@ -1,13 +1,13 @@
 import { Link, Outlet } from 'react-router-dom';
 import { useReducer } from 'react';
-import { reducer } from '../reducer';
 import { Context } from '../context';
+import { reducer } from '../reducer';
 import '../css/layout.css';
 
-const initialState = {
+export const initialState = {
     field: [
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -18,14 +18,16 @@ const initialState = {
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     ],
 
-    ant: [1, 3],
+    ant: [3, 6],
 
     way: {
-        north: false,
+        north: true,
         east: false,
         south: false,
-        west: true
-    }
+        west: false
+    },
+
+    startGame: false
 }
 
 const Layout = () => {

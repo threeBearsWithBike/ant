@@ -1,0 +1,12 @@
+.btn-game {
+    padding: 5px 7px;
+    margin: 20px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: bisque;
+    border-radius: 3px;
+    border: 2px solid brown; 
+    background: brown;
+    cursor: pointer;
+}
