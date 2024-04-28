@@ -1,3 +1,5 @@
+import { initialState } from "./components/Layout";
+
 export function reducer(state, action) {
     
     const currentWay = () => {
@@ -7,23 +9,6 @@ export function reducer(state, action) {
             }
         }
     }
-
-    // const newField = (prevField, ant) => {
-    //     const [antRow, antCol] = ant;
-    //     return prevField.map((fieldRow, idx) => {
-    //         if (idx === antRow) {
-    //             const newRow = [...fieldRow];
-    //             if (newRow[antCol] === 0) {
-    //                 newRow[antCol] = 1;
-    //                 return newRow;
-    //             } else {
-    //                 newRow[antCol] = 0;
-    //                 return newRow;
-    //             }
-    //         }
-    //         return fieldRow;
-    //     });
-    // }
 
     const getPositionAnt = (ant) => {
         const [row, col] = ant;
@@ -48,6 +33,13 @@ export function reducer(state, action) {
     }
 
     switch(action.type) {
+
+        case 'reset':
+            return initialState;
+
+        case 'choiceOfSpeed':
+            return {...state, speed: action.payload}
+
 
         case 'changeStatusCell':
             
@@ -83,7 +75,8 @@ export function reducer(state, action) {
                                 west: true
                             },
                             ant: getPositionAnt([state.ant[0], state.ant[1] - 1]),
-                            startGame: state.startGame
+                            startGame: state.startGame,
+                            speed: state.speed
                         };
 
                     case 'east':
@@ -96,7 +89,8 @@ export function reducer(state, action) {
                                 west: false
                             },
                             ant: getPositionAnt([state.ant[0] - 1, state.ant[1]]),
-                            startGame: state.startGame
+                            startGame: state.startGame,
+                            speed: state.speed
                         };
 
                     case 'south':
@@ -109,7 +103,8 @@ export function reducer(state, action) {
                                 west: false
                             },
                             ant: getPositionAnt([state.ant[0], state.ant[1] + 1]),
-                            startGame: state.startGame
+                            startGame: state.startGame,
+                            speed: state.speed
                         };
 
                     case 'west':
@@ -122,7 +117,8 @@ export function reducer(state, action) {
                                 west: false
                             },
                             ant: getPositionAnt([state.ant[0] + 1, state.ant[1]]),
-                            startGame: state.startGame  
+                            startGame: state.startGame,
+                            speed: state.speed  
                         };                    
                 }
 
@@ -142,7 +138,8 @@ export function reducer(state, action) {
                                 west: false
                             },
                             ant: getPositionAnt([state.ant[0], state.ant[1] + 1]),
-                            startGame: state.startGame
+                            startGame: state.startGame,
+                            speed: state.speed
                         };
 
                     case 'east':
@@ -155,7 +152,8 @@ export function reducer(state, action) {
                                 west: false
                             },
                             ant: getPositionAnt([state.ant[0] + 1, state.ant[1]]),
-                            startGame: state.startGame
+                            startGame: state.startGame,
+                            speed: state.speed
                         };
 
                     case 'south':
@@ -168,7 +166,8 @@ export function reducer(state, action) {
                                 west: true
                             },
                             ant: getPositionAnt([state.ant[0], state.ant[1] - 1]),
-                            startGame: state.startGame
+                            startGame: state.startGame,
+                            speed: state.speed
                         };
 
                     case 'west':
@@ -181,7 +180,8 @@ export function reducer(state, action) {
                                 west: false
                             },
                             ant: getPositionAnt([state.ant[0] - 1, state.ant[1]]),
-                            startGame: state.startGame  
+                            startGame: state.startGame,
+                            speed: state.speed  
                         };  
                 }
             }

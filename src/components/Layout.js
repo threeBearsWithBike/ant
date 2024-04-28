@@ -27,7 +27,9 @@ export const initialState = {
         west: false
     },
 
-    startGame: false
+    startGame: false,
+
+    speed: 1000
 }
 
 const Layout = () => {

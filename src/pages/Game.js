@@ -10,10 +10,10 @@ const Game = () => {
             let idInteval = setInterval(() => {
                 dispatch({type: 'changeStatusCell'});
                 dispatch({type: 'moveAnt'});
-            }, 100);
+            }, state.speed);
             return () => clearInterval(idInteval);
         }
-    }, [state.startGame]);
+    }, [state.startGame, state.speed]);
     
     return (
         <section>
@@ -23,12 +23,13 @@ const Game = () => {
             </p>
             <button
                 onClick={() => dispatch({type: 'game'})}
-                // onClick={() => {
-                //     dispatch({type: 'changeStatusCell'});
-                //     dispatch({type: 'moveAnt'});
-                // }}
                 className='btn-game'>
                 {state.startGame ? 'Pause' : 'Start'}
+            </button>
+            <button
+                onClick={() => dispatch({type: 'reset'})}
+                className='btn-game'>
+                reset
             </button>
         </section>
     )
