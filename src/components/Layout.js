@@ -29,7 +29,9 @@ export const initialState = {
 
     startGame: false,
 
-    speed: 1000
+    speed: 1000,
+
+    step: 0
 }
 
 const Layout = () => {

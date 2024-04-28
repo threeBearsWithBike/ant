@@ -19,7 +19,10 @@ const Game = () => {
         <section>
             <h2>Game</h2>
             <p>
-                    <Field />
+                <Field />
+            </p>
+            <p>
+                Муравей сделал шагов: {state.step}
             </p>
             <button
                 onClick={() => dispatch({type: 'game'})}
