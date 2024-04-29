@@ -10,6 +10,30 @@ export function reducer(state, action) {
         }
     }
 
+    const resizeField = (size) => {
+        let newField = [];
+        for (let i=0; i < size; i++) {
+            let row = [];
+            for (let j=0; j < size; j++) {
+                row = [...row, 0];
+            }
+            newField.push(row);
+        }
+        return newField;
+    }
+
+    const setNewWay = (way, payload) => {
+        let newWay = {...way};
+        for (let key in newWay) {
+            if (key !== payload) {
+                newWay[key] = false;
+            } else {
+                newWay[key] = true;
+            }
+        }
+        return newWay;
+    }
+
     const getPositionAnt = (ant) => {
         const [row, col] = ant;
         let maxRow = state.field.length - 1;
@@ -33,6 +57,12 @@ export function reducer(state, action) {
     }
 
     switch(action.type) {
+
+        case 'resizeField':
+            return {...state, field: resizeField(action.payload)};
+
+        case 'setWay':
+            return {...state, way: setNewWay(state.way, action.payload)}
 
         case 'setRowAnt':
             return {...state, ant: [action.payload, state.ant[1]]};

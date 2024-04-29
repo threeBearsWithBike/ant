@@ -12,35 +12,45 @@ const Settings = () => {
                 <button onClick={() => {
                     dispatch({type: 'choiceOfSpeed', payload: 1000})
                 }}
-                className='btn-game'>
+                className={state.speed === 1000 ? 'active' : 'btn-game'}>
                     slow
                 </button>
                 <button onClick={() => {
                     dispatch({type: 'choiceOfSpeed', payload: 500})
                 }}
-                className='btn-game'>
+                className={state.speed === 500 ? 'active' : 'btn-game'}>
                     average
                 </button>
                 <button onClick={() => {
                     dispatch({type: 'choiceOfSpeed', payload: 0})
                 }}
-                className='btn-game'>
+                className={state.speed === 0 ? 'active' : 'btn-game'}>
                     high
                 </button>
             </p>
             <p>
                 <h3>Размер поля</h3>
+                <p>Перед путешествием можно выбрать размер мира, по которому будет бегать муравей</p>
                 <button
-                    className='btn-game'>
+                    className={state.field.length === 10 ? 'active' : 'btn-game'}
+                    disabled={state.step !== 0}
+                    onClick={() => dispatch({type: 'resizeField', payload: 10})}
+                >
                         10X10
                 </button>
                 <button
-                    className='btn-game'>
+                    className={state.field.length === 20 ? 'active' : 'btn-game'}
+                    disabled={state.step !== 0}
+                    onClick={() => dispatch({type: 'resizeField', payload: 20})}
+                >
                         20X20
                 </button>
                 <button
-                    className='btn-game'>
-                        50X50
+                    className={state.field.length === 40 ? 'active' : 'btn-game'}
+                    disabled={state.step !== 0}
+                    onClick={() => dispatch({type: 'resizeField', payload: 40})}
+                >
+                        40X40
                 </button>
             </p>
             <p>
@@ -76,6 +86,37 @@ const Settings = () => {
                         />
                     </label>
                 </form>
+            </p>
+            <p>
+                <h3>Выбрать направление движения муравья</h3>
+                <button
+                    className={state.way.north ? 'active' : 'btn-game'}
+                    disabled={state.step !== 0}
+                    onClick={() => dispatch({type: 'setWay', payload: 'north'})}
+                >
+                    N
+                </button>
+                <button
+                    className={state.way.south ? 'active' : 'btn-game'}
+                    disabled={state.step !== 0}
+                    onClick={() => dispatch({type: 'setWay', payload: 'south'})}
+                >
+                    S
+                </button>
+                <button
+                    className={state.way.west ? 'active' : 'btn-game'}
+                    disabled={state.step !== 0}
+                    onClick={() => dispatch({type: 'setWay', payload: 'west'})}
+                >
+                    W
+                </button>
+                <button
+                    className={state.way.east ? 'active' : 'btn-game'}
+                    disabled={state.step !== 0}
+                    onClick={() => dispatch({type: 'setWay', payload: 'east'})}
+                >
+                    E
+                </button>
             </p>
         </section>
     )
