@@ -34,8 +34,39 @@ export const initialState = {
     step: 0
 }
 
+const getInitialState = (size) => {
+    const initialState = {
+        field: [],
+    
+        ant: [3, 6],
+    
+        way: {
+            north: true,
+            east: false,
+            south: false,
+            west: false
+        },
+    
+        startGame: false,
+    
+        speed: 1000,
+    
+        step: 0
+    }
+
+    for (let i=0; i < size; i++) {
+        let row = [];
+        for (let j=0; j < size; j++) {
+            row = [...row, 0];
+        }
+        initialState.field.push(row);
+    }
+
+    return initialState;
+}
+
 const Layout = () => {
-    const [state, dispatch] = useReducer(reducer, initialState);
+    const [state, dispatch] = useReducer(reducer, 10, getInitialState);
 
     return (
         <div className='Layout'>

@@ -34,6 +34,12 @@ export function reducer(state, action) {
 
     switch(action.type) {
 
+        case 'setRowAnt':
+            return {...state, ant: [action.payload, state.ant[1]]};
+
+        case 'setColAnt':
+            return {...state, ant: [state.ant[0], action.payload]};
+
         case 'reset':
             return initialState;
 
